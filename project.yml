@@ -15,16 +15,19 @@ targets:
     resources:
       - AIUsageMonitor/Assets.xcassets
       - AIUsageMonitor/Resources
+      - AIUsageMonitor/Resources/en.lproj
+      - AIUsageMonitor/Resources/zh-Hans.lproj
     info:
       path: AIUsageMonitor/Info.plist
       properties:
         LSUIElement: true
         CFBundleDisplayName: "AI 用量监控"
+        CFBundleIconName: AppIcon
         NSHumanReadableCopyright: "Copyright © 2026. All rights reserved."
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.aiusage.monitor
-        MARKETING_VERSION: "1.0.0"
+        MARKETING_VERSION: "0.1.0"
         CURRENT_PROJECT_VERSION: 1
         SWIFT_VERSION: "5.9"
         MACOSX_DEPLOYMENT_TARGET: "14.0"
@@ -32,6 +35,8 @@ targets:
         ENABLE_HARDENED_RUNTIME: true
         CODE_SIGN_STYLE: Automatic
         COMBINE_HIDPI_IMAGES: true
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GENERATE_APPICON_INFO_PLIST: YES
     entitlements:
       path: AIUsageMonitor/AIUsageMonitor.entitlements
       properties:

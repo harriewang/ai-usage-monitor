@@ -1,0 +1,68 @@
+/* Menu Bar */
+"menu.title" = "AI Usage Monitor";
+"menu.noKey" = "No API Key";
+"menu.loading" = "Loading...";
+
+/* Action Buttons */
+"action.refresh" = "Refresh";
+"action.settings" = "Settings";
+"action.quit" = "Quit";
+
+/* Settings Window */
+"settings.title" = "Settings — AI Usage Monitor";
+"settings.header" = "API Key Management";
+"settings.description" = "Enter API keys for each platform and click Test to verify connection.";
+"settings.placeholder.key" = "Paste %@ API Key";
+"settings.placeholder.mimo" = "Paste MiMo Cookie";
+"settings.button.test" = "Test";
+"settings.button.save" = "Save";
+"settings.button.close" = "Close";
+"settings.status.cookieSaved" = "✓ Cookie saved";
+"settings.status.keySaved" = "✓ Saved";
+"settings.status.cookieNotSet" = "Cookie not set";
+"settings.status.keyNotSet" = "Not set";
+"settings.status.skipSave" = "No changes, skipped";
+"settings.status.deleted" = "Deleted";
+"settings.status.saveFailed" = "✗ Save failed";
+"settings.status.needSaveFirst" = "Please save API Key first";
+"settings.status.testing" = "...";
+"settings.status.testingConnection" = "Testing connection...";
+"settings.status.connectionSuccess" = "✓ Connection successful";
+
+/* Status Row */
+"status.keySet" = "API Key set";
+"status.keyNotSet" = "API Key not set";
+"status.connected" = "Connected";
+"status.disconnected" = "Disconnected";
+
+/* Usage Display */
+"usage.remaining" = "%d remaining";
+"usage.tokens" = "%d tokens";
+"usage.usedFormat" = "Used %@";
+"usage.usedCount" = "Used %@/%@";
+
+/* Error Messages */
+"error.noAPIKey" = "API Key not set";
+"error.httpError" = "Request failed (HTTP %d)";
+"error.decodingError" = "Parsing failed: %@";
+"error.networkError" = "Network error: %@";
+
+/* Time Formatting */
+"time.resetFormat" = "Reset in %dh %dm";
+"time.resetMinutes" = "Reset in %dm";
+
+/* Providers */
+"provider.minimax" = "MiniMax";
+"provider.zhipuAI" = "ZHIPU AI";
+"provider.miMo" = "MiMo";
+
+/* Status Row */
+"status.keySet" = "API Key set";
+"status.keyNotSet" = "API Key not set";
+"status.connected" = "Connected";
+"status.disconnected" = "Disconnected";
+
+/* Usage Card */
+"card.loading" = "Loading...";
+"card.fetchFailed" = "Fetch failed";
+"card.usage5h" = "Usage in 5h";

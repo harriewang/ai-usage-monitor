@@ -8,6 +8,15 @@ enum APIProvider: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    /// 本地化名称
+    var localizedName: String {
+        switch self {
+        case .minimax: return NSLocalizedString("provider.minimax", comment: "")
+        case .zhipuAI: return NSLocalizedString("provider.zhipuAI", comment: "")
+        case .miMo: return NSLocalizedString("provider.miMo", comment: "")
+        }
+    }
+
     /// 余额查询 URL
     var balanceURL: URL {
         switch self {

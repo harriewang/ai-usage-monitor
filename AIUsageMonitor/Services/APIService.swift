@@ -36,7 +36,7 @@ enum APIService {
 
     /// MiMo 网页接口（Cookie 认证）
     private static func fetchMiMoUsage() async throws -> UsageData {
-        guard let apiKey = KeychainService.load(for: .miMo) else {
+        guard KeychainService.load(for: .miMo) != nil else {
             throw APIError.noAPIKey
         }
 
@@ -162,7 +162,7 @@ enum APIService {
         let usagePercent = total > 0 ? Double(used) / Double(total) * 100.0 : nil
 
         // 格式：已用 52/600
-        let displayText = "已用 \(used)/\(total)"
+        let displayText = String(format: NSLocalizedString("usage.usedCount", comment: ""), "\(used)", "\(total)")
 
         // 解析时间信息
         let startTime = model["start_time"] as? Int64 ?? 0
@@ -185,7 +185,7 @@ enum APIService {
         )
     }
 
-    /// 解析 chat completions 响应（智谱AI）
+    /// 解析 chat completions 响应（ZHIPU AI）
     private static func parseChatCompletionResponse(rawJSON: [String: Any]?, provider: APIProvider) -> UsageData {
         guard let json = rawJSON else {
             return UsageData(provider: provider, rawJSON: rawJSON)
@@ -249,7 +249,7 @@ enum APIService {
         let limit = planItem["limit"] as? Int ?? 0
         let percent = planItem["percent"] as? Double ?? 0
 
-        let displayText = "已用 \(formatNumber(used))/\(formatNumber(limit))"
+        let displayText = String(format: NSLocalizedString("usage.usedCount", comment: ""), formatNumber(used), formatNumber(limit))
         let usagePercent = percent * 100
 
         // 尝试获取月度周期信息
@@ -300,9 +300,9 @@ enum APIService {
         if totalSeconds >= 3600 {
             let hours = totalSeconds / 3600
             let mins = (totalSeconds % 3600) / 60
-            return "重置时间：\(hours)小时\(mins)分钟后重置"
+            return String(format: NSLocalizedString("time.resetFormat", comment: ""), hours, mins)
         } else {
-            return "重置时间：\(totalSeconds / 60)分钟后重置"
+            return String(format: NSLocalizedString("time.resetMinutes", comment: ""), totalSeconds / 60)
         }
     }
 }

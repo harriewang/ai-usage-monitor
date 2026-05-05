@@ -35,12 +35,12 @@ class PlatformCardView: NSView {
            let img = NSImage(contentsOfFile: path) {
             iconView.image = img
         }
-        nameLabel.stringValue = provider.rawValue
+        nameLabel.stringValue = provider.localizedName
 
         if !hasKey {
             statusDot.stringValue = "○"
             statusDot.textColor = .textTertiary
-            usedLabel.stringValue = "未设置 Key"
+            usedLabel.stringValue = NSLocalizedString("menu.noKey", comment: "")
             usedLabel.textColor = .textTertiary
             percentLabel.stringValue = ""
             progressBar.progress = 0
@@ -51,7 +51,7 @@ class PlatformCardView: NSView {
         } else if isLoading {
             statusDot.stringValue = "●"
             statusDot.textColor = .progressYellow
-            usedLabel.stringValue = "加载中..."
+            usedLabel.stringValue = NSLocalizedString("menu.loading", comment: "")
             usedLabel.textColor = .textSecondary
             percentLabel.stringValue = ""
             progressBar.progress = 0
@@ -139,7 +139,7 @@ class PlatformCardView: NSView {
         remainingLabel.font = .systemFont(ofSize: 10)
         remainingLabel.textColor = .textTertiary
         remainingLabel.alignment = .right
-        remainingLabel.frame = NSRect(x: 160, y: 60, width: 148, height: 12)
+        remainingLabel.frame = NSRect(x: 250, y: 60, width: 138, height: 12)
         addSubview(remainingLabel)
 
         // 进度条（y=36，宽=346）

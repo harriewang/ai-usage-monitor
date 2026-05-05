@@ -62,7 +62,7 @@ enum MenuBuilder {
     private static func makeHeaderView() -> NSView {
         let view = NSView(frame: NSRect(x: 0, y: 0, width: 400, height: 36))
 
-        let titleLabel = NSTextField(labelWithString: "AI 用量监控")
+        let titleLabel = NSTextField(labelWithString: NSLocalizedString("menu.title", comment: ""))
         titleLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         titleLabel.textColor = .textPrimary
         titleLabel.frame = NSRect(x: 16, y: 8, width: 200, height: 20)

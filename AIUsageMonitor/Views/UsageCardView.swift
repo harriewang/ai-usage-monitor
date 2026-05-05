@@ -10,7 +10,7 @@ class UsageCardView: NSView {
     private let percentLabel = NSTextField(labelWithString: "")
     private let progressBar = GradientProgressBar()
     private let loadingSpinner = NSProgressIndicator()
-    private let loadingLabel = NSTextField(labelWithString: "加载中...")
+    private let loadingLabel = NSTextField(labelWithString: NSLocalizedString("card.loading", comment: ""))
 
     override init(frame frameRect: NSRect) {
         super.init(frame: NSRect(x: 0, y: 0, width: Self.menuWidth, height: Self.height))
@@ -57,7 +57,7 @@ class UsageCardView: NSView {
     }
 
     private func showError(_ error: String) {
-        titleLabel.stringValue = "获取失败"
+        titleLabel.stringValue = NSLocalizedString("card.fetchFailed", comment: "")
         percentLabel.stringValue = error
         percentLabel.textColor = .statusError
         percentLabel.font = .systemFont(ofSize: 12)
@@ -65,7 +65,7 @@ class UsageCardView: NSView {
     }
 
     private func showData(usagePercent: Double?) {
-        titleLabel.stringValue = "5小时内用量"
+        titleLabel.stringValue = NSLocalizedString("card.usage5h", comment: "")
         percentLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         let percent = usagePercent ?? 0
         percentLabel.stringValue = String(format: "%.1f%%", percent)

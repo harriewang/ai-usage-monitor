@@ -24,13 +24,13 @@ class StatusRowView: NSView {
         // API Key 状态
         keyIcon.stringValue = hasKey ? "●" : "○"
         keyIcon.textColor = hasKey ? .statusOK : .statusError
-        keyStatus.stringValue = hasKey ? "API Key 已设置" : "未设置 API Key"
+        keyStatus.stringValue = hasKey ? NSLocalizedString("status.keySet", comment: "") : NSLocalizedString("status.keyNotSet", comment: "")
         keyStatus.textColor = hasKey ? .textSecondary : .statusError
 
         // 连接状态
         connectionIcon.stringValue = isConnected ? "●" : "○"
         connectionIcon.textColor = isConnected ? .statusOK : .textTertiary
-        connectionStatus.stringValue = isConnected ? "已连接" : "未连接"
+        connectionStatus.stringValue = isConnected ? NSLocalizedString("status.connected", comment: "") : NSLocalizedString("status.disconnected", comment: "")
         connectionStatus.textColor = isConnected ? .textSecondary : .textTertiary
     }
 

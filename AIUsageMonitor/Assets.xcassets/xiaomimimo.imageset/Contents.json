@@ -1,15 +1,7 @@
 {
   "images" : [
-    {
-      "idiom" : "macos",
-      "scale" : "1x",
-      "filename" : "xiaomimimo.png"
-    },
-    {
-      "idiom" : "macos",
-      "scale" : "2x",
-      "filename" : "xiaomimimo.png"
-    }
+    { "filename" : "xiaomimimo.png", "idiom" : "mac", "scale" : "1x" },
+    { "filename" : "xiaomimimo.png", "idiom" : "mac", "scale" : "2x" }
   ],
   "info" : {
     "author" : "xcode",

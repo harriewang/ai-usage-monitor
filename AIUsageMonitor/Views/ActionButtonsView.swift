@@ -4,7 +4,7 @@ import AppKit
 class ActionButtonsView: NSView {
 
     static let height: CGFloat = 48
-    static let menuWidth: CGFloat = 320
+    static let menuWidth: CGFloat = 400
 
     var onRefresh: (() -> Void)?
     var onOpenSettings: (() -> Void)?
@@ -27,7 +27,7 @@ class ActionButtonsView: NSView {
 
         // 刷新余额
         let refreshBtn = makeStyledButton(
-            title: "刷新余额",
+            title: NSLocalizedString("action.refresh", comment: ""),
             color: .themeAccent,
             frame: NSRect(x: startX, y: 10, width: buttonWidth, height: 28)
         )
@@ -36,7 +36,7 @@ class ActionButtonsView: NSView {
 
         // 打开设置
         let settingsBtn = makeStyledButton(
-            title: "打开设置",
+            title: NSLocalizedString("action.settings", comment: ""),
             color: .textSecondary,
             frame: NSRect(x: startX + buttonWidth + spacing, y: 10, width: buttonWidth, height: 28)
         )
@@ -45,7 +45,7 @@ class ActionButtonsView: NSView {
 
         // 退出
         let quitBtn = makeStyledButton(
-            title: "退出",
+            title: NSLocalizedString("action.quit", comment: ""),
             color: .statusError,
             frame: NSRect(x: startX + (buttonWidth + spacing) * 2, y: 10, width: buttonWidth, height: 28)
         )

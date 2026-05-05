@@ -13,6 +13,7 @@
 		1B61D9CBCDA4DF02603C2F4B /* ProviderTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D7C2AAE0A0FE39A016E43 /* ProviderTabView.swift */; };
 		2CF4B97F197234EAAA1E156D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720F812CFD67FDBCC8540708 /* AppSettings.swift */; };
 		489611BDDAC1C2EB94850045 /* MenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5318978BA5AA99DFB59A0CF9 /* MenuBuilder.swift */; };
+		4A5E808338467B14DF35576A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05D5FC39CB00312E1637FA55 /* Localizable.strings */; };
 		4D99311ED4DC8B032418F692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DBF433CCDA4B152747B6BC /* AppDelegate.swift */; };
 		4E701058E7B05C3DBE03EE8B /* ActionButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0135E76FC85F444EE339A4 /* ActionButtonsView.swift */; };
 		5C445C0F499CDE2281A7E590 /* zhipu.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FD9CF4B07F174E4A4A04BD /* zhipu.png */; };
@@ -27,6 +28,7 @@
 		B2F0DA6B41979CA18BF6383D /* xiaomimimo.png in Resources */ = {isa = PBXBuildFile; fileRef = 232865EBBDB7BAB034D5193F /* xiaomimimo.png */; };
 		BE706AA96EA712A6013166BA /* NSView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29549F3B2704D89C8E00E454 /* NSView+Helpers.swift */; };
 		C8C68AAC62AAFDF2B9140A4B /* NSColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E857E37A3B284736081D7BD /* NSColor+Theme.swift */; };
+		CCF74D032C7FF349F9207FE8 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59526832B8A6CC573A3786 /* Localize.swift */; };
 		CEDC4163CDBEA640D545018D /* PlatformCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2809AA552B75C36D25F9183F /* PlatformCardView.swift */; };
 		D7A412650699AE53A2A24952 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE3C893CF652652E6DD9274 /* APIProvider.swift */; };
 		E3FD7488EAD651D08B59573F /* GradientProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A52716405BE196BCBA4892 /* GradientProgressBar.swift */; };
@@ -46,12 +48,14 @@
 		2E857E37A3B284736081D7BD /* NSColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Theme.swift"; sourceTree = "<group>"; };
 		39E24370249D303147EC5331 /* StatusRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRowView.swift; sourceTree = "<group>"; };
 		48AA0BB5794620E1EC63A1DD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		49280AE3A3D9FD8C4B6594B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		525754AAFD4B85F5EACAF00B /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		5318978BA5AA99DFB59A0CF9 /* MenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.swift; sourceTree = "<group>"; };
 		592DF4EAFD403CC209835A3E /* minimax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimax.png; sourceTree = "<group>"; };
 		6FE3C893CF652652E6DD9274 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		720F812CFD67FDBCC8540708 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		7CB788D7931984721AB02E77 /* AIUsageMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AIUsageMonitor.entitlements; sourceTree = "<group>"; };
+		816F2186B141AEE8C4800FC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8F72106E21EBEE3347D2FF0D /* UsageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageData.swift; sourceTree = "<group>"; };
 		9C04B101F949E203B1AB7640 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A948AAC1F6DA1C628E27AA8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		E2235E34EF0E37B7F0A06BB7 /* AIUsageMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIUsageMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0135E76FC85F444EE339A4 /* ActionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonsView.swift; sourceTree = "<group>"; };
 		EDE10877AB3C0EC34F4E3FC0 /* UsageMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageMonitor.swift; sourceTree = "<group>"; };
+		FC59526832B8A6CC573A3786 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -79,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				B9102A89524E2B5D687157BB /* AppIcon.swift */,
+				FC59526832B8A6CC573A3786 /* Localize.swift */,
 				2E857E37A3B284736081D7BD /* NSColor+Theme.swift */,
 				29549F3B2704D89C8E00E454 /* NSView+Helpers.swift */,
 			);
@@ -156,6 +162,7 @@
 		E13E95D58DA8BDB8B1913789 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05D5FC39CB00312E1637FA55 /* Localizable.strings */,
 				B1B3E3E316CC400BE8938B7B /* logo.png */,
 				592DF4EAFD403CC209835A3E /* minimax.png */,
 				232865EBBDB7BAB034D5193F /* xiaomimimo.png */,
@@ -214,6 +221,7 @@
 			knownRegions = (
 				Base,
 				en,
+				"zh-Hans",
 			);
 			mainGroup = FCF9852DEEB6209B02A43AA9;
 			minimizedProjectReferenceProxies = 1;
@@ -232,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9B85C4BCA15F187CA3F4090 /* Assets.xcassets in Resources */,
+				4A5E808338467B14DF35576A /* Localizable.strings in Resources */,
 				5E6B0C0191B56547C6E5AA47 /* logo.png in Resources */,
 				EF18EFD0AFCFA0C37C03D7F3 /* minimax.png in Resources */,
 				B2F0DA6B41979CA18BF6383D /* xiaomimimo.png in Resources */,
@@ -254,6 +263,7 @@
 				2CF4B97F197234EAAA1E156D /* AppSettings.swift in Sources */,
 				E3FD7488EAD651D08B59573F /* GradientProgressBar.swift in Sources */,
 				99B6146C82CE8D5513E532FD /* KeychainService.swift in Sources */,
+				CCF74D032C7FF349F9207FE8 /* Localize.swift in Sources */,
 				489611BDDAC1C2EB94850045 /* MenuBuilder.swift in Sources */,
 				C8C68AAC62AAFDF2B9140A4B /* NSColor+Theme.swift in Sources */,
 				BE706AA96EA712A6013166BA /* NSView+Helpers.swift in Sources */,
@@ -270,6 +280,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		05D5FC39CB00312E1637FA55 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49280AE3A3D9FD8C4B6594B5 /* en */,
+				816F2186B141AEE8C4800FC1 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0D00DFCD39C3A386009572BF /* Debug */ = {
@@ -395,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_APPICON_INFO_PLIST = YES;
 				CODE_SIGN_ENTITLEMENTS = AIUsageMonitor/AIUsageMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -406,7 +429,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiusage.monitor;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.9;
@@ -417,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_APPICON_INFO_PLIST = YES;
 				CODE_SIGN_ENTITLEMENTS = AIUsageMonitor/AIUsageMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -428,7 +452,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aiusage.monitor;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.9;

@@ -6,7 +6,6 @@ class SettingsWindowController: NSWindowController {
     private var keyFields: [APIProvider: NSTextField] = [:]
     private var statusLabels: [APIProvider: NSTextField] = [:]
     private var testButtons: [APIProvider: NSButton] = [:]
-    private var cookieFields: [APIProvider: NSTextField] = [:] // MiMo 使用 Cookie
 
     convenience init() {
         let window = NSWindow(
@@ -15,7 +14,7 @@ class SettingsWindowController: NSWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "设置 — AI 用量监控"
+        window.title = NSLocalizedString("settings.title", comment: "")
         window.center()
         window.isReleasedWhenClosed = false
 
@@ -29,11 +28,11 @@ class SettingsWindowController: NSWindowController {
     private func setupUI() {
         guard let contentView = window?.contentView else { return }
 
-        let headerLabel = makeLabel(text: "API Key 管理", fontSize: 18, bold: true)
+        let headerLabel = makeLabel(text: NSLocalizedString("settings.header", comment: ""), fontSize: 18, bold: true)
         headerLabel.frame = NSRect(x: 24, y: 310, width: 400, height: 24)
         contentView.addSubview(headerLabel)
 
-        let descLabel = makeLabel(text: "输入各平台的 API Key，点击测试验证连接。", fontSize: 12, bold: false)
+        let descLabel = makeLabel(text: NSLocalizedString("settings.description", comment: ""), fontSize: 12, bold: false)
         descLabel.textColor = .secondaryLabelColor
         descLabel.frame = NSRect(x: 24, y: 288, width: 400, height: 16)
         contentView.addSubview(descLabel)
@@ -42,16 +41,16 @@ class SettingsWindowController: NSWindowController {
 
         for provider in APIProvider.allCases {
             // 平台名
-            let nameLabel = makeLabel(text: provider.rawValue, fontSize: 14, bold: true)
+            let nameLabel = makeLabel(text: provider.localizedName, fontSize: 14, bold: true)
             nameLabel.frame = NSRect(x: 24, y: yOffset, width: 80, height: 20)
             contentView.addSubview(nameLabel)
 
-            // Key 输入框（MiMo 使用 Cookie）
+            // Key 输入框
             let keyField = NSTextField()
             if provider == .miMo {
-                keyField.placeholderString = "粘贴 MiMo Cookie"
+                keyField.placeholderString = NSLocalizedString("settings.placeholder.mimo", comment: "")
             } else {
-                keyField.placeholderString = "粘贴 \(provider.rawValue) API Key"
+                keyField.placeholderString = String(format: NSLocalizedString("settings.placeholder.key", comment: ""), provider.rawValue)
             }
             keyField.frame = NSRect(x: 110, y: yOffset, width: 240, height: 24)
             keyField.font = .systemFont(ofSize: 13)
@@ -59,7 +58,7 @@ class SettingsWindowController: NSWindowController {
             keyFields[provider] = keyField
 
             // 测试按钮
-            let testBtn = NSButton(title: "测试", target: self, action: #selector(testConnection(_:)))
+            let testBtn = NSButton(title: NSLocalizedString("settings.button.test", comment: ""), target: self, action: #selector(testConnection(_:)))
             testBtn.tag = APIProvider.allCases.firstIndex(of: provider) ?? 0
             testBtn.bezelStyle = .rounded
             testBtn.font = .systemFont(ofSize: 12)
@@ -68,7 +67,7 @@ class SettingsWindowController: NSWindowController {
             testButtons[provider] = testBtn
 
             // 保存按钮
-            let saveBtn = NSButton(title: "保存", target: self, action: #selector(saveKey(_:)))
+            let saveBtn = NSButton(title: NSLocalizedString("settings.button.save", comment: ""), target: self, action: #selector(saveKey(_:)))
             saveBtn.tag = APIProvider.allCases.firstIndex(of: provider) ?? 0
             saveBtn.bezelStyle = .rounded
             saveBtn.font = .systemFont(ofSize: 12)
@@ -85,7 +84,7 @@ class SettingsWindowController: NSWindowController {
         }
 
         // 底部按钮
-        let closeBtn = NSButton(title: "关闭", target: self, action: #selector(closeWindow))
+        let closeBtn = NSButton(title: NSLocalizedString("settings.button.close", comment: ""), target: self, action: #selector(closeWindow))
         closeBtn.bezelStyle = .rounded
         closeBtn.font = .systemFont(ofSize: 13)
         closeBtn.frame = NSRect(x: 380, y: 16, width: 80, height: 28)
@@ -97,20 +96,18 @@ class SettingsWindowController: NSWindowController {
     private func loadExistingKeys() {
         for provider in APIProvider.allCases {
             if provider == .miMo {
-                if let cookie = KeychainService.loadMiMoCookie() {
-                    keyFields[provider]?.stringValue = maskKey(cookie)
-                    statusLabels[provider]?.stringValue = "✓ Cookie 已保存"
+                if KeychainService.loadMiMoCookie() != nil {
+                    statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.cookieSaved", comment: "")
                     statusLabels[provider]?.textColor = .systemGreen
                 } else {
-                    statusLabels[provider]?.stringValue = "未设置 Cookie"
+                    statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.cookieNotSet", comment: "")
                     statusLabels[provider]?.textColor = .secondaryLabelColor
                 }
-            } else if let key = KeychainService.load(for: provider) {
-                keyFields[provider]?.stringValue = maskKey(key)
-                statusLabels[provider]?.stringValue = "✓ 已保存"
+            } else if KeychainService.load(for: provider) != nil {
+                statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.keySaved", comment: "")
                 statusLabels[provider]?.textColor = .systemGreen
             } else {
-                statusLabels[provider]?.stringValue = "未设置"
+                statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.keyNotSet", comment: "")
                 statusLabels[provider]?.textColor = .secondaryLabelColor
             }
         }
@@ -133,17 +130,16 @@ class SettingsWindowController: NSWindowController {
 
         let keyValue = keyField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        // 检查是否是掩码值（未修改）
         if keyValue.contains("****") {
             if provider == .miMo {
                 if KeychainService.loadMiMoCookie() != nil {
-                    statusLabels[provider]?.stringValue = "未修改，跳过保存"
+                    statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.skipSave", comment: "")
                     statusLabels[provider]?.textColor = .secondaryLabelColor
                     return
                 }
             } else {
                 if KeychainService.hasKey(for: provider) {
-                    statusLabels[provider]?.stringValue = "未修改，跳过保存"
+                    statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.skipSave", comment: "")
                     statusLabels[provider]?.textColor = .secondaryLabelColor
                     return
                 }
@@ -157,7 +153,7 @@ class SettingsWindowController: NSWindowController {
                 KeychainService.delete(for: provider)
             }
             keyField.stringValue = ""
-            statusLabels[provider]?.stringValue = "已删除"
+            statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.deleted", comment: "")
             statusLabels[provider]?.textColor = .systemOrange
             return
         }
@@ -166,21 +162,21 @@ class SettingsWindowController: NSWindowController {
             let success = KeychainService.saveMiMoCookie(keyValue)
             if success {
                 keyField.stringValue = maskKey(keyValue)
-                statusLabels[provider]?.stringValue = "✓ Cookie 已保存"
+                statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.cookieSaved", comment: "")
                 statusLabels[provider]?.textColor = .systemGreen
                 Task { await UsageMonitor.shared.refresh(provider: .miMo) }
             } else {
-                statusLabels[provider]?.stringValue = "✗ 保存失败"
+                statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.saveFailed", comment: "")
                 statusLabels[provider]?.textColor = .systemRed
             }
         } else {
             let success = KeychainService.save(key: keyValue, for: provider)
             if success {
                 keyField.stringValue = maskKey(keyValue)
-                statusLabels[provider]?.stringValue = "✓ 已保存"
+                statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.keySaved", comment: "")
                 statusLabels[provider]?.textColor = .systemGreen
             } else {
-                statusLabels[provider]?.stringValue = "✗ 保存失败"
+                statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.saveFailed", comment: "")
                 statusLabels[provider]?.textColor = .systemRed
             }
         }
@@ -192,31 +188,31 @@ class SettingsWindowController: NSWindowController {
         let provider = APIProvider.allCases[index]
 
         guard KeychainService.hasKey(for: provider) else {
-            statusLabels[provider]?.stringValue = "请先保存 API Key"
+            statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.needSaveFirst", comment: "")
             statusLabels[provider]?.textColor = .systemOrange
             return
         }
 
         sender.isEnabled = false
-        sender.title = "中..."
-        statusLabels[provider]?.stringValue = "正在测试连接..."
+        sender.title = NSLocalizedString("settings.status.testing", comment: "")
+        statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.testingConnection", comment: "")
         statusLabels[provider]?.textColor = .secondaryLabelColor
 
         Task {
             do {
                 _ = try await APIService.fetchUsage(for: provider)
                 await MainActor.run {
-                    statusLabels[provider]?.stringValue = "✓ 连接成功"
+                    statusLabels[provider]?.stringValue = NSLocalizedString("settings.status.connectionSuccess", comment: "")
                     statusLabels[provider]?.textColor = .systemGreen
                     sender.isEnabled = true
-                    sender.title = "测试"
+                    sender.title = NSLocalizedString("settings.button.test", comment: "")
                 }
             } catch {
                 await MainActor.run {
                     statusLabels[provider]?.textColor = .systemRed
                     statusLabels[provider]?.stringValue = "✗ \(error.localizedDescription)"
                     sender.isEnabled = true
-                    sender.title = "测试"
+                    sender.title = NSLocalizedString("settings.button.test", comment: "")
                 }
             }
         }

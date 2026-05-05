@@ -1,0 +1,68 @@
+/* Menu Bar */
+"menu.title" = "AI 用量监控";
+"menu.noKey" = "未设置 Key";
+"menu.loading" = "加载中...";
+
+/* Action Buttons */
+"action.refresh" = "刷新余额";
+"action.settings" = "打开设置";
+"action.quit" = "退出";
+
+/* Settings Window */
+"settings.title" = "设置 — AI 用量监控";
+"settings.header" = "API Key 管理";
+"settings.description" = "输入各平台的 API Key，点击测试验证连接。";
+"settings.placeholder.key" = "粘贴 %@ API Key";
+"settings.placeholder.mimo" = "粘贴 MiMo Cookie";
+"settings.button.test" = "测试";
+"settings.button.save" = "保存";
+"settings.button.close" = "关闭";
+"settings.status.cookieSaved" = "✓ Cookie 已保存";
+"settings.status.keySaved" = "✓ 已保存";
+"settings.status.cookieNotSet" = "未设置 Cookie";
+"settings.status.keyNotSet" = "未设置";
+"settings.status.skipSave" = "未修改，跳过保存";
+"settings.status.deleted" = "已删除";
+"settings.status.saveFailed" = "✗ 保存失败";
+"settings.status.needSaveFirst" = "请先保存 API Key";
+"settings.status.testing" = "中...";
+"settings.status.testingConnection" = "正在测试连接...";
+"settings.status.connectionSuccess" = "✓ 连接成功";
+
+/* Status Row */
+"status.keySet" = "API Key 已设置";
+"status.keyNotSet" = "未设置 API Key";
+"status.connected" = "已连接";
+"status.disconnected" = "未连接";
+
+/* Usage Display */
+"usage.remaining" = "剩余 %d 次";
+"usage.tokens" = "%d tokens";
+"usage.usedFormat" = "已用 %@";
+"usage.usedCount" = "已用 %@/%@";
+
+/* Error Messages */
+"error.noAPIKey" = "未设置 API Key";
+"error.httpError" = "请求失败 (HTTP %d)";
+"error.decodingError" = "解析失败: %@";
+"error.networkError" = "网络错误: %@";
+
+/* Time Formatting */
+"time.resetFormat" = "重置时间：%d小时%d分钟后重置";
+"time.resetMinutes" = "重置时间：%d分钟后重置";
+
+/* Providers */
+"provider.minimax" = "MiniMax";
+"provider.zhipuAI" = "智谱AI";
+"provider.miMo" = "MiMo";
+
+/* Status Row */
+"status.keySet" = "API Key 已设置";
+"status.keyNotSet" = "未设置 API Key";
+"status.connected" = "已连接";
+"status.disconnected" = "未连接";
+
+/* Usage Card */
+"card.loading" = "加载中...";
+"card.fetchFailed" = "获取失败";
+"card.usage5h" = "5小时内用量";
