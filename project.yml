@@ -1,0 +1,38 @@
+name: AIUsageMonitor
+options:
+  bundleIdPrefix: com.aiusage
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+targets:
+  AIUsageMonitor:
+    type: application
+    platform: macOS
+    sources:
+      - AIUsageMonitor
+    resources:
+      - AIUsageMonitor/Assets.xcassets
+      - AIUsageMonitor/Resources
+    info:
+      path: AIUsageMonitor/Info.plist
+      properties:
+        LSUIElement: true
+        CFBundleDisplayName: "AI 用量监控"
+        NSHumanReadableCopyright: "Copyright © 2026. All rights reserved."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.aiusage.monitor
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        INFOPLIST_FILE: AIUsageMonitor/Info.plist
+        ENABLE_HARDENED_RUNTIME: true
+        CODE_SIGN_STYLE: Automatic
+        COMBINE_HIDPI_IMAGES: true
+    entitlements:
+      path: AIUsageMonitor/AIUsageMonitor.entitlements
+      properties:
+        com.apple.security.network.client: true

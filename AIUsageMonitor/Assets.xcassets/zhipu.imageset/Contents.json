@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "idiom" : "macos",
+      "scale" : "1x",
+      "filename" : "zhipu.png"
+    },
+    {
+      "idiom" : "macos",
+      "scale" : "2x",
+      "filename" : "zhipu.png"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

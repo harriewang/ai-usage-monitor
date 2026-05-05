@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "idiom" : "macos",
+      "scale" : "1x",
+      "filename" : "xiaomimimo.png"
+    },
+    {
+      "idiom" : "macos",
+      "scale" : "2x",
+      "filename" : "xiaomimimo.png"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

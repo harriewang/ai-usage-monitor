@@ -1,0 +1,26 @@
+# Xcode
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Build
+build/
+*.app
+*.appex
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Keys & Credentials
+*.key
+*.p12
+*.mobileprovision
+api_keys.json

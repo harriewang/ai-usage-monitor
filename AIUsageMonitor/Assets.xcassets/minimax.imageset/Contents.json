@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "idiom" : "macos",
+      "scale" : "1x",
+      "filename" : "minimax.png"
+    },
+    {
+      "idiom" : "macos",
+      "scale" : "2x",
+      "filename" : "minimax.png"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
